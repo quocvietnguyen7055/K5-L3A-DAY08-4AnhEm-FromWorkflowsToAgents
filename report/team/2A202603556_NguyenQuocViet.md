@@ -4,22 +4,24 @@
 
 - Họ tên: Nguyen Quoc Viet
 - MSSV: 2A202603556
-- Email: Chưa cung cấp
+- Email: rinthongminh@gmail.com
 - GitHub: [quocvietnguyen7055](https://github.com/quocvietnguyen7055)
 - Vai trò: Nhóm trưởng
 
 ## 2. Phần việc phụ trách
 
-Cùng các thành viên thực hiện các phần việc của lab: triển khai workflow, single ReAct và orchestrator; chạy đối chứng swarm; hoàn thiện benchmark, crash suite và báo cáo.
+Nhóm trưởng; phần C: shape orchestrator và handoff an toàn. Cùng nhóm hoàn thiện phần tích hợp và báo cáo.
 
 ## 3. Đóng góp cụ thể
 
-Đóng góp chung được ghi trong commit `3614266` (ba shape và bằng chứng benchmark/crash) và `4bec2f3` (báo cáo nhóm bằng tiếng Việt). Không chia riêng phần việc vì cả nhóm cùng làm.
+Đóng góp liên quan phần C gồm triển khai shape orchestrator trong commit `3614266` và kiểm thử trong commit `01bdac2`.
 
 ## 4. Bằng chứng
 
 - `python -m pytest -q`: 54 passed.
 - `python -m pytest -q -m student -o addopts=`: 248 passed.
+- `python -m pytest -q tests/test_team_orchestrator.py`: 15 passed.
+- `python -m pytest -q`: 146 passed.
 - `python -m lab8.crash_test --count 20 --out reports/crash.json`: crash safety 20/20.
 - `python -m lab8.check_submission`: 0 FAIL, 0 WARN.
 - Run benchmark ví dụ: `R-workflow-C-001-s11`.
