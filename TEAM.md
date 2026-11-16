@@ -28,7 +28,7 @@ Mỗi dòng chỉ ghi commit có nội dung do chính người đó đứng tên
 | Nguyen Quoc Viet (2A202603556) | Nhóm trưởng; phần C. Cài ba shape, sinh `benchmark.json` và `crash.json`, viết ADR, research card, báo cáo nhóm | `3614266` (ba shape, benchmark, crash), `c495637`, `4bec2f3`, `d669b6e` (báo cáo) | Chưa có (issue #13) |
 | Le Quang Linh (2A202603583) | Phần B: test shape single | `a62b4b8` (test single), `ac2901f` (báo cáo cá nhân) | `src/tests/test_team_single.py` (2 test: C-002 seed 55 không tin ticket; giới hạn bước và `run_id` trong trace) |
 | Dau Phuc Duc (2A202603580) | Phần A: test workflow, rà soát tái lập, ablation research card, tích hợp | `2307509` (test workflow), `7c40c0a` (ablation và research card), `541f382` (báo cáo cá nhân), `9bbf1a4` (email, vai trò), `00db032` (khôi phục file mẫu) | `src/tests/test_team_workflow.py` (33 test: T02 cả 5 seed theo order; trace và kết quả không lộ dữ liệu khách) |
-| Do Duc Duan (2A202603590) | Phần D: demo durability và crash trong báo cáo nhóm | `f39d8b4` (báo cáo nhóm, demo crash), `dd26bf9` (email, báo cáo cá nhân) | Chưa có (issue #18) |
+| Do Duc Duan (2A202603590) | Phần D: demo durability và crash trong báo cáo nhóm, test quét lộ dữ liệu | `f39d8b4` (báo cáo nhóm, demo crash), `dd26bf9` (email, báo cáo cá nhân), `816ac9c` (test quét lộ dữ liệu) | `src/tests/test_team_leak_scan.py` (42 test: 3 shape × 14 claim public, trace, file `<run_id>*` và kết quả không chứa secret hay dữ liệu đơn hàng) |
 
 ## Báo cáo cá nhân
 
