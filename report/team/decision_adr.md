@@ -1,7 +1,7 @@
 # Biên bản quyết định kiến trúc
 
 - Shape chọn: workflow
-- Commit hash: 3614266 (mã nguồn và bằng chứng benchmark)
+- Commit hash: f2d83b9 (đủ shape, test, bonus và `src/reports/*.json`; ba shape và `benchmark.json`, `crash.json` không đổi từ `3614266`)
 - Run id dẫn chứng: R-workflow-C-001-s11
 - Pass rate / pass^5 / seed min-max / variance: 1.000 / 1.000 / 1.000–1.000 / 0.000000 (`reports/benchmark.json`, 70 lượt chạy)
 - Cost per success (mô phỏng, VND): 27.86
