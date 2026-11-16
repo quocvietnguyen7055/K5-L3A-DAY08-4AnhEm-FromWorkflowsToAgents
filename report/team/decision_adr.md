@@ -6,7 +6,7 @@
 - Pass rate / pass^5 / seed min-max / variance: 1.000 / 1.000 / 1.000–1.000 / 0.000000 (`reports/benchmark.json`, 70 lượt chạy)
 - Cost per success (mô phỏng, VND): 27.86
 - Crash safety: 20/20 (`src/reports/crash.json`)
-- Secret leak / approval bypass: Không phát hiện rò rỉ hoặc vượt quyền trong kiểm tra host, bộ public, trace và crash; chưa chạy bộ chấm hidden.
+- Secret leak / approval bypass: 0 / 0 trên 70 lượt public của workflow (`src/reports/bonus_ablation.json`, mục `by_shape.workflow.safety`; cũng bằng 0 ở cả 9 shape, 630 lượt). Test `tests/test_team_leak_scan.py` quét trace và kết quả của 3 shape × 14 claim. Chưa chạy bộ chấm hidden.
 
 ## Vì sao chọn kiến trúc này
 
@@ -14,7 +14,7 @@ Chọn workflow cho nhóm yêu cầu hoàn phí này vì workflow đạt 70/70 l
 
 ## Có nên đổi sang nhiều tác tử không?
 
-Trong bộ dữ liệu này, orchestrator không cải thiện tỷ lệ đạt so với workflow và tốn thêm khoảng 66.7% cho mỗi lần thành công. Swarm có thêm một lỗi ở C-002, seed 55: tin số ngày trong phiếu thay vì dữ liệu đơn hàng. Chỉ nên cân nhắc nhiều tác tử khi công việc có các phần độc lập và investigator cải thiện độ chính xác đủ bù chi phí; cần kiểm chứng trên bộ dữ liệu đại diện mới.
+Trong bộ dữ liệu này, orchestrator không cải thiện tỷ lệ đạt so với workflow và tốn thêm khoảng 66.7% cho mỗi lần thành công. Swarm có thêm một lỗi ở C-002, seed 55: tin số ngày trong phiếu thay vì dữ liệu đơn hàng. Chênh lệch 70/70 so với 69/70 không có ý nghĩa thống kê (McNemar exact p = 1.0, `report/team/bonus_report.md`), nên nhóm không dựa vào nó. Lý do chọn là cơ chế lỗi: bỏ đúng khối tin phiếu (`swarm_no_override`) thì swarm đạt 70/70 mà vẫn đắt hơn workflow 20.86 VND mỗi lần đạt. Chỉ nên cân nhắc nhiều tác tử khi công việc có các phần độc lập và investigator cải thiện độ chính xác đủ bù chi phí; cần kiểm chứng trên bộ dữ liệu đại diện mới.
 
 ## Trace và bằng chứng
 

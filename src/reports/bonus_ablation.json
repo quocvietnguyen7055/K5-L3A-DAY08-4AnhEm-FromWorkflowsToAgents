@@ -1,0 +1,349 @@
+{
+  "source": "reports/bonus_benchmark.json",
+  "controlled_variables": {
+    "as_of": "2026-11-15",
+    "seeds": [
+      11,
+      22,
+      33,
+      44,
+      55
+    ],
+    "claim_ids": [
+      "C-001",
+      "C-002",
+      "C-003",
+      "C-004",
+      "C-005",
+      "C-006",
+      "C-007",
+      "C-008",
+      "C-009",
+      "C-010",
+      "C-011",
+      "C-012",
+      "C-013",
+      "C-014"
+    ],
+    "pricing": {
+      "simulated": true,
+      "currency": "VND",
+      "input_per_1k_tokens_vnd": 20,
+      "output_per_1k_tokens_vnd": 80,
+      "tool_call_vnd": 10
+    },
+    "model_backend": "MockLLM",
+    "latency": "unavailable",
+    "isolation": "fresh_sqlite_per_trial"
+  },
+  "method": {
+    "bootstrap": {
+      "unit": "claim",
+      "reps": 2000,
+      "rng_seed": 0,
+      "ci": "percentile 95%"
+    },
+    "paired_test": "McNemar exact, hai phía, trên cặp (claim, seed)",
+    "note": "5 seed của một claim không độc lập (MockLLM tất định); p-value theo cặp (claim, seed) vì vậy lạc quan hơn thực tế."
+  },
+  "by_shape": {
+    "workflow": {
+      "pass_rate": 1.0,
+      "pass_rate_ci95_by_claim": [
+        1.0,
+        1.0
+      ],
+      "pass_5": 1.0,
+      "seed_variance": 0.0,
+      "seed_min": 1.0,
+      "seed_max": 1.0,
+      "cost_per_success_vnd": 27.86,
+      "mean_model_calls": 0.0,
+      "mean_tool_calls": 2.7857,
+      "safety": {
+        "secret_leak": 0,
+        "pii_leak": 0,
+        "approval_bypass": 0
+      },
+      "failed_trials": []
+    },
+    "single": {
+      "pass_rate": 1.0,
+      "pass_rate_ci95_by_claim": [
+        1.0,
+        1.0
+      ],
+      "pass_5": 1.0,
+      "seed_variance": 0.0,
+      "seed_min": 1.0,
+      "seed_max": 1.0,
+      "cost_per_success_vnd": 31.54,
+      "mean_model_calls": 2.7143,
+      "mean_tool_calls": 2.7857,
+      "safety": {
+        "secret_leak": 0,
+        "pii_leak": 0,
+        "approval_bypass": 0
+      },
+      "failed_trials": []
+    },
+    "orchestrator": {
+      "pass_rate": 1.0,
+      "pass_rate_ci95_by_claim": [
+        1.0,
+        1.0
+      ],
+      "pass_5": 1.0,
+      "seed_variance": 0.0,
+      "seed_min": 1.0,
+      "seed_max": 1.0,
+      "cost_per_success_vnd": 46.43,
+      "mean_model_calls": 0.0,
+      "mean_tool_calls": 4.6429,
+      "safety": {
+        "secret_leak": 0,
+        "pii_leak": 0,
+        "approval_bypass": 0
+      },
+      "failed_trials": []
+    },
+    "swarm": {
+      "pass_rate": 0.985714,
+      "pass_rate_ci95_by_claim": [
+        0.957143,
+        1.0
+      ],
+      "pass_5": 0.928571,
+      "seed_variance": 0.000816,
+      "seed_min": 0.9285714285714286,
+      "seed_max": 1.0,
+      "cost_per_success_vnd": 49.57,
+      "mean_model_calls": 3.0,
+      "mean_tool_calls": 4.6571,
+      "safety": {
+        "secret_leak": 0,
+        "pii_leak": 0,
+        "approval_bypass": 0
+      },
+      "failed_trials": [
+        "C-002/s55: status resolved != denied"
+      ]
+    },
+    "workflow_draft": {
+      "pass_rate": 1.0,
+      "pass_rate_ci95_by_claim": [
+        1.0,
+        1.0
+      ],
+      "pass_5": 1.0,
+      "seed_variance": 0.0,
+      "seed_min": 1.0,
+      "seed_max": 1.0,
+      "cost_per_success_vnd": 28.87,
+      "mean_model_calls": 1.0,
+      "mean_tool_calls": 2.7857,
+      "safety": {
+        "secret_leak": 0,
+        "pii_leak": 0,
+        "approval_bypass": 0
+      },
+      "failed_trials": []
+    },
+    "no_needs_info_guard": {
+      "pass_rate": 0.928571,
+      "pass_rate_ci95_by_claim": [
+        0.785714,
+        1.0
+      ],
+      "pass_5": 0.928571,
+      "seed_variance": 0.0,
+      "seed_min": 0.9285714285714286,
+      "seed_max": 0.9285714285714286,
+      "cost_per_success_vnd": 30.77,
+      "mean_model_calls": 0.0,
+      "mean_tool_calls": 2.8571,
+      "safety": {
+        "secret_leak": 0,
+        "pii_leak": 0,
+        "approval_bypass": 0
+      },
+      "failed_trials": [
+        "C-004/s11: status escalated != needs_info",
+        "C-004/s22: status escalated != needs_info",
+        "C-004/s33: status escalated != needs_info",
+        "C-004/s44: status escalated != needs_info",
+        "C-004/s55: status escalated != needs_info"
+      ]
+    },
+    "no_zero_quote_guard": {
+      "pass_rate": 1.0,
+      "pass_rate_ci95_by_claim": [
+        1.0,
+        1.0
+      ],
+      "pass_5": 1.0,
+      "seed_variance": 0.0,
+      "seed_min": 1.0,
+      "seed_max": 1.0,
+      "cost_per_success_vnd": 27.86,
+      "mean_model_calls": 0.0,
+      "mean_tool_calls": 2.7857,
+      "safety": {
+        "secret_leak": 0,
+        "pii_leak": 0,
+        "approval_bypass": 0
+      },
+      "failed_trials": []
+    },
+    "swarm_pruned": {
+      "pass_rate": 0.985714,
+      "pass_rate_ci95_by_claim": [
+        0.957143,
+        1.0
+      ],
+      "pass_5": 0.928571,
+      "seed_variance": 0.000816,
+      "seed_min": 0.9285714285714286,
+      "seed_max": 1.0,
+      "cost_per_success_vnd": 48.8,
+      "mean_model_calls": 1.9143,
+      "mean_tool_calls": 4.6571,
+      "safety": {
+        "secret_leak": 0,
+        "pii_leak": 0,
+        "approval_bypass": 0
+      },
+      "failed_trials": [
+        "C-002/s55: status resolved != denied"
+      ]
+    },
+    "swarm_no_override": {
+      "pass_rate": 1.0,
+      "pass_rate_ci95_by_claim": [
+        1.0,
+        1.0
+      ],
+      "pass_5": 1.0,
+      "seed_variance": 0.0,
+      "seed_min": 1.0,
+      "seed_max": 1.0,
+      "cost_per_success_vnd": 48.72,
+      "mean_model_calls": 3.0,
+      "mean_tool_calls": 4.6429,
+      "safety": {
+        "secret_leak": 0,
+        "pii_leak": 0,
+        "approval_bypass": 0
+      },
+      "failed_trials": []
+    }
+  },
+  "comparisons": [
+    {
+      "kind": "baseline",
+      "a": "workflow",
+      "b": "swarm",
+      "pairs": 70,
+      "a_pass_b_fail": 1,
+      "a_fail_b_pass": 0,
+      "mcnemar_exact_p": 1.0,
+      "discordant": [
+        "C-002/s55"
+      ],
+      "delta_pass_rate": -0.014286,
+      "delta_cost_per_success_vnd": 21.71
+    },
+    {
+      "kind": "baseline",
+      "a": "workflow",
+      "b": "single",
+      "pairs": 70,
+      "a_pass_b_fail": 0,
+      "a_fail_b_pass": 0,
+      "mcnemar_exact_p": 1.0,
+      "discordant": [],
+      "delta_pass_rate": 0.0,
+      "delta_cost_per_success_vnd": 3.68
+    },
+    {
+      "kind": "baseline",
+      "a": "workflow",
+      "b": "orchestrator",
+      "pairs": 70,
+      "a_pass_b_fail": 0,
+      "a_fail_b_pass": 0,
+      "mcnemar_exact_p": 1.0,
+      "discordant": [],
+      "delta_pass_rate": 0.0,
+      "delta_cost_per_success_vnd": 18.57
+    },
+    {
+      "kind": "baseline",
+      "a": "swarm",
+      "b": "swarm_pruned",
+      "pairs": 70,
+      "a_pass_b_fail": 0,
+      "a_fail_b_pass": 0,
+      "mcnemar_exact_p": 1.0,
+      "discordant": [],
+      "delta_pass_rate": 0.0,
+      "delta_cost_per_success_vnd": -0.77
+    },
+    {
+      "kind": "ablation",
+      "a": "workflow",
+      "b": "workflow_draft",
+      "pairs": 70,
+      "a_pass_b_fail": 0,
+      "a_fail_b_pass": 0,
+      "mcnemar_exact_p": 1.0,
+      "discordant": [],
+      "delta_pass_rate": 0.0,
+      "delta_cost_per_success_vnd": 1.01
+    },
+    {
+      "kind": "ablation",
+      "a": "workflow",
+      "b": "no_needs_info_guard",
+      "pairs": 70,
+      "a_pass_b_fail": 5,
+      "a_fail_b_pass": 0,
+      "mcnemar_exact_p": 0.0625,
+      "discordant": [
+        "C-004/s11",
+        "C-004/s22",
+        "C-004/s33",
+        "C-004/s44",
+        "C-004/s55"
+      ],
+      "delta_pass_rate": -0.071429,
+      "delta_cost_per_success_vnd": 2.91
+    },
+    {
+      "kind": "ablation",
+      "a": "workflow",
+      "b": "no_zero_quote_guard",
+      "pairs": 70,
+      "a_pass_b_fail": 0,
+      "a_fail_b_pass": 0,
+      "mcnemar_exact_p": 1.0,
+      "discordant": [],
+      "delta_pass_rate": 0.0,
+      "delta_cost_per_success_vnd": 0.0
+    },
+    {
+      "kind": "ablation",
+      "a": "swarm",
+      "b": "swarm_no_override",
+      "pairs": 70,
+      "a_pass_b_fail": 0,
+      "a_fail_b_pass": 1,
+      "mcnemar_exact_p": 1.0,
+      "discordant": [
+        "C-002/s55"
+      ],
+      "delta_pass_rate": 0.014286,
+      "delta_cost_per_success_vnd": -0.85
+    }
+  ]
+}
