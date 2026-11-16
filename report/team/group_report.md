@@ -4,7 +4,7 @@
 
 - Tên nhóm: 4AnhEm
 - Thành viên: bốn thành viên ghi trong `TEAM.md`; GitHub issue #1 đã đóng sau khi ghi nhận danh tính.
-- Commit mã nguồn và bằng chứng benchmark: `3614266`; nội dung báo cáo được cập nhật trong các commit tiếp theo.
+- Commit chấm: hash ghi trong `decision_adr.md`. Commit đó chứa đủ shape, test, bonus và các file `src/reports/*.json`. Ba shape và hai file `benchmark.json`, `crash.json` không đổi từ `3614266`.
 
 ## 2. Mục tiêu và cách tiếp cận
 
@@ -30,7 +30,7 @@ Nguồn số liệu: `src/reports/benchmark.json` (14 yêu cầu × 5 seed, 70 l
 | Orchestrator | 1.000 | 1.000 | 1.000–1.000 | 0.000000 | 46.43 | 3.71 / 4 |
 | Swarm | 0.986 | 0.929 | 0.929–1.000 | 0.000816 | 49.57 | 2.80 / 3 |
 
-Bộ kiểm tra crash đạt 20/20. Cổng kiểm tra host (`python -m pytest -q`): 142 đạt, gồm test của nhóm và 11 test bonus. Ma trận student: 248 đạt. Bộ kiểm tra hồ sơ báo 0 lỗi, 0 cảnh báo. Chọn workflow vì tỷ lệ đạt tương đương các shape khác nhưng chi phí thấp nhất trên bộ dữ liệu này. Xem chi tiết và giới hạn trong `decision_adr.md`; phép so sánh kiến trúc ở `research_card.md`.
+Bộ kiểm tra crash đạt 20/20. Cổng kiểm tra host (`python -m pytest -q`): 157 đạt, gồm 92 test của nhóm (workflow 33, single 2, orchestrator 15, quét lộ dữ liệu 42) và 11 test bonus. Ma trận student: 248 đạt. Bộ kiểm tra hồ sơ báo 0 lỗi, 0 cảnh báo. Chọn workflow vì tỷ lệ đạt tương đương các shape khác nhưng chi phí thấp nhất trên bộ dữ liệu này. Xem chi tiết và giới hạn trong `decision_adr.md`; phép so sánh kiến trúc ở `research_card.md`.
 
 Bonus B4 (`bonus_report.md`, lệnh `python -m bonus.stats`) kiểm lại kết luận trên bằng thống kê và ablation:
 - Chênh lệch workflow–swarm không có ý nghĩa thống kê (McNemar exact p = 1.0).
