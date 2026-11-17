@@ -1,6 +1,6 @@
 # Trace case: ticket delay overrides the database
 
-**Trial:** `seeded_regression`, claim C-002, seed 11. Eval set v1 item E-002. The report run ID is `E-seeded_regression-20261117-4f50`.
+**Trial:** `seeded_regression`, claim C-002, seed 11. Eval set v1 item E-002. The report run ID is `E-seeded_regression-20261117-22f5`.
 
 **Symptom:** Lab 8 grader fails with `status resolved != denied`. The ledger contains a 20,000 VND refund although the expected refund is zero.
 

@@ -36,7 +36,10 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
 
 
 def sha12(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
+    # Git checkouts can use LF or CRLF depending on platform. Hash the canonical
+    # text representation so the committed baseline and CI agree across OSes.
+    data = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(data).hexdigest()[:12]
 
 
 def build(source: Path = SOURCE) -> tuple[int, int]:

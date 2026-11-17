@@ -1,9 +1,9 @@
 {
-  "run_id": "E-swarm-20261117-beda",
+  "run_id": "E-swarm-20261117-5c46",
   "shape": "swarm",
   "manifest": {
     "eval_set": "data/eval/eval_set_v2.jsonl",
-    "eval_set_sha": "bedaba641d3d",
+    "eval_set_sha": "5c46087713f0",
     "items": 28,
     "seeds": [
       11,

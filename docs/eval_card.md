@@ -24,7 +24,7 @@ MockLLM and deterministic seeded trials do not represent production model varian
 
 | Field | v1 | v2 |
 |---|---|---|
-| Baseline run / eval-set SHA | `E-swarm-20261117-4f50` / `4f50b5e27b06` | `E-swarm-20261117-beda` / `bedaba641d3d` |
+| Baseline run / eval-set SHA | `E-swarm-20261117-22f5` / `22f5c7a1f08e` | `E-swarm-20261117-5c46` / `5c46087713f0` |
 | Coverage | 14 items × 5 seeds | 28 items × 5 seeds |
 | `pass_rate` | 0.9857 | 0.9786 |
 | `refund_amount_correct` | 0.9857 | 0.9786 |
@@ -42,4 +42,4 @@ The v1 grader detection probe explained 100% of failing `seeded_regression` rows
 
 `*` The Lab 8 reference shape does not emit a `reply` trace event, so the reply-amount evaluator treats that observation as unavailable and records neutral passes. Instrumented Lab 9 variants emit replies and exercise FM-08. This makes the baseline reply metric a coverage limitation, not evidence that the reference replies were independently checked.
 
-The seeded_regression run ID is `E-seeded_regression-20261117-4f50`. The `fixed` run ID is `E-fixed-20261117-4f50`. Reports were generated locally from the Lab 8 checkout copied into this workspace; the upstream Lab 8 repository was not modified. The GitHub Actions workflow was not run here.
+The seeded_regression run ID is `E-seeded_regression-20261117-22f5`. The `fixed` run ID is `E-fixed-20261117-22f5`. Report hashes use normalized line endings, so the same eval-set digest is produced on Windows and Linux. Reports were generated in the Lab 8 team checkout.
